@@ -12,7 +12,7 @@ import {
   UniverSheetsDrawingUIPlugin,
 } from "@univerjs/sheets-drawing-ui";
 import type { IInitOption, ISpec } from "@visactor/react-vchart";
-// import { VChart } from "@visactor/react-vchart";
+import { VChart } from "@visactor/react-vchart";
 import {
   COMPONENT_KEY,
   CREATE_VCHART_COMMAND_ID,
@@ -43,9 +43,7 @@ class UniverVChartPlugin extends Plugin {
 
   private _initCustomComponents = () => {
     const componentManager = this._componentManager;
-    this.disposeWithMe(
-      componentManager.register(COMPONENT_KEY, VChartContainer)
-    );
+    this.disposeWithMe(componentManager.register(COMPONENT_KEY, VChart));
   };
 
   /**
