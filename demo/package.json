@@ -1,0 +1,47 @@
+{
+  "name": "univer-sheet-start-kit",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "description": "A starter kit for Univer Sheet",
+  "scripts": {
+    "prepare": "simple-git-hooks",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@univerjs/core": "^0.1.15",
+    "@univerjs/design": "^0.1.15",
+    "@univerjs/docs": "^0.1.15",
+    "@univerjs/docs-ui": "^0.1.15",
+    "@univerjs/engine-formula": "^0.1.15",
+    "@univerjs/engine-numfmt": "^0.1.15",
+    "@univerjs/engine-render": "^0.1.15",
+    "@univerjs/facade": "^0.1.15",
+    "@univerjs/sheets": "^0.1.15",
+    "@univerjs/sheets-formula": "^0.1.15",
+    "@univerjs/sheets-numfmt": "^0.1.15",
+    "@univerjs/sheets-ui": "^0.1.15",
+    "@univerjs/sheets-zen-editor": "^0.1.15",
+    "@univerjs/ui": "^0.1.15",
+    "@wendellhu/redi": "0.15.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.18.0",
+    "@univerjs/vite-plugin": "^0.4.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-format": "^0.1.1",
+    "lint-staged": "^15.2.2",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
