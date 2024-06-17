@@ -18,7 +18,6 @@ import {
   CREATE_VCHART_COMMAND_ID,
   PLUGIN_NAME,
 } from "./constants";
-import VChartContainer from "./VChartContainer";
 
 /**
  * Import CSV Button Plugin
