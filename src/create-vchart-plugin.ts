@@ -19,10 +19,6 @@ import {
   PLUGIN_NAME,
 } from "./constants";
 
-/**
- * Import CSV Button Plugin
- * A simple Plugin example, show how to write a plugin.
- */
 @DependentOn(UniverSheetsDrawingUIPlugin)
 class UniverVChartPlugin extends Plugin {
   static override pluginName = PLUGIN_NAME;
@@ -85,31 +81,11 @@ class UniverVChartPlugin extends Plugin {
             options: params.options,
           },
         });
-
-        // 浮层被删除
-        floatDomService.remove$.subscribe((transformState) => {
-          console.log("remove", transformState);
-        });
-
-        floatDomService.transformChange$.subscribe((transformState) => {
-          console.log("change", transformState);
-        });
-
         return true;
       },
     };
 
     this.commandService.registerCommand(createVChatCommand);
-  }
-
-  onReady() {
-    console.log("onReady");
-  }
-  onRendered() {
-    console.log("onRendered");
-  }
-  onSteady() {
-    console.log("onSteady");
   }
 }
 
