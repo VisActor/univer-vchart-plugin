@@ -49,7 +49,7 @@ $ yarn add @visactor/univer-vchart-plugin
 
 ### 📊 A Simple Chart
 
-<img src="https://user-images.githubusercontent.com/135952300/246996854-95cf0db3-42a2-41f9-8f15-8b7bbec1794c.png" style="width: 500px">
+<img src="https://lf9-dp-fe-cms-tos.byteorg.com/obj/bit-cloud/univer-vchart-plugin.png" style="width: 800px">
 
 ```typescript
 import {
