@@ -13,7 +13,7 @@
 
 <div align="center">
 
-The vchart univer plugin encapsulates the capability to create chart overlays within [Univer](https://univer.ai/zh-CN).
+vchart univer 插件封装了[Univer](https://univer.ai/zh-CN)中绘制图表浮层的能力
 
 ![](https://github.com/visactor/univer-vchart-plugin/actions/workflows/bug-server.yml/badge.svg)
 ![](https://github.com/visactor/univer-vchart-plugin/actions/workflows/unit-test.yml/badge.svg)
@@ -31,13 +31,13 @@ The vchart univer plugin encapsulates the capability to create chart overlays wi
 
 </div>
 
-## Introduction
+## 简介
 
-VChart is a chart component library within the VisActor visualization system. [Univer](https://univer.ai/) is an open-source Office suite. Using the univer-vchart-plugin, you can easily create chart overlays.
+VChart 是 VisActor 可视化体系中的图表组件库，[Univer](https://univer.ai/)是开源Office 办公套件，基于univer-vchart-plugin，可以轻松的创建图表浮层
 
-## 🔨 Usage
+## 🔨 使用
 
-### 📦 Installation
+### 📦 安装
 
 ```bash
 # npm
@@ -47,7 +47,7 @@ $ npm install @visactor/univer-vchart-plugin
 $ yarn add @visactor/univer-vchart-plugin
 ```
 
-### 📊 A Simple Chart
+### 📊 一个简单的图表
 
 <img src="https://user-images.githubusercontent.com/135952300/246996854-95cf0db3-42a2-41f9-8f15-8b7bbec1794c.png" style="width: 500px">
 
@@ -132,22 +132,22 @@ export function setupVChartDemo($toolbar: HTMLElement, univerAPI: FUniver) {
 }
 ```
 
-## 🔗 Related Links
+## 🔗 相关链接
 
-- [Homepage](https://www.visactor.io/vchart)
-- [VCharts Chart Examples](https://www.visactor.io/vchart/example)
-- [VChart Chart Tutorial](https://www.visactor.io/vchart/guide/tutorial_docs/VChart_Website_Guide)
-- [VChart Chart Configuration Options](https://www.visactor.io/vchart/option/)
+- [主页](https://www.visactor.io/vchart)
+- [VCharts 图表示例](https://www.visactor.io/vchart/example)
+- [VChart 图表教程](https://www.visactor.io/vchart/guide/tutorial_docs/VChart_Website_Guide)
+- [VChart 图表配置项](https://www.visactor.io/vchart/option/)
 - [VChart API](https://www.visactor.io/vchart/api/API/vchart)
 - [VGrammar](https://www.visactor.io/vgrammar)
 - [VRender](https://www.visactor.io/vrender)
 - [FAQ](https://www.visactor.io/vchart/guide/tutorial_docs/FAQ)
-- [CodeSandbox Template](https://codesandbox.io/s/the-template-of-visactor-vchart-vl84ww?file=/src/index.ts) for submitting bugs
+- [CodeSandbox 模板](https://codesandbox.io/s/the-template-of-visactor-vchart-vl84ww?file=/src/index.ts) 用于 bug 的提交
 
-## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/visactor/univer-vchart-plugin/blob/main/CONTRIBUTING.md#your-first-pull-request)
+## 🤝 参与贡献 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/visactor/univer-vchart-plugin/blob/main/CONTRIBUTING.md#your-first-pull-request)
 
-If you would like to contribute, please read the [Code of Conduct](./CODE_OF_CONDUCT.md) and the [Contribution Guide](./CONTRIBUTING.zh-CN.md) first.
+如想参与贡献，请先阅读[行为准则](./CODE_OF_CONDUCT.md) 和[贡献指南](./CONTRIBUTING.zh-CN.md)。
 
-Small streams make big rivers!
+细流成河，终成大海！
 
 <a href="https://github.com/visactor/univer-vchart-plugin/graphs/contributors"><img src="https://contrib.rocks/image?repo=visactor/univer-vchart-plugin" /></a>
