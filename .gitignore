@@ -11,6 +11,9 @@ node_modules
 dist
 dist-ssr
 *.local
+umd
+esm
+cjs
 
 # Editor directories and files
 .vscode/*

@@ -4,9 +4,18 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "build": "rollup -c",
     "dev": "cd demo/ && vite",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "browser": "umd/index.js",
+  "files": [
+    "cjs/",
+    "esm/",
+    "umd/"
+  ],
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -17,6 +26,14 @@
     "@visactor/react-vchart": "~1.11.3"
   },
   "devDependencies": {
+    "glob": "^10.4.1",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@rollup/plugin-commonjs": "^11.0.1",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
+    "rollup": "^1.29.0",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
