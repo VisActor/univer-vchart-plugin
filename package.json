@@ -1,7 +1,7 @@
 {
-  "name": "univer-vchart-plugin",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@visactor/univer-vchart-plugin",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "build": "rollup -c",
