@@ -11,19 +11,14 @@ import {
   SheetCanvasFloatDomManagerService,
   UniverSheetsDrawingUIPlugin,
 } from "@univerjs/sheets-drawing-ui";
-import type { IInitOption, ISpec } from "@visactor/react-vchart";
-// import { VChart } from "@visactor/react-vchart";
+import { VChart } from "@visactor/react-vchart";
 import {
   COMPONENT_KEY,
   CREATE_VCHART_COMMAND_ID,
   PLUGIN_NAME,
 } from "./constants";
-import VChartContainer from "./VChartContainer";
+import { CreateVChartParams } from "./interface";
 
-/**
- * Import CSV Button Plugin
- * A simple Plugin example, show how to write a plugin.
- */
 @DependentOn(UniverSheetsDrawingUIPlugin)
 class UniverVChartPlugin extends Plugin {
   static override pluginName = PLUGIN_NAME;
@@ -43,9 +38,7 @@ class UniverVChartPlugin extends Plugin {
 
   private _initCustomComponents = () => {
     const componentManager = this._componentManager;
-    this.disposeWithMe(
-      componentManager.register(COMPONENT_KEY, VChartContainer)
-    );
+    this.disposeWithMe(componentManager.register(COMPONENT_KEY, VChart));
   };
 
   /**
@@ -58,19 +51,7 @@ class UniverVChartPlugin extends Plugin {
     const createVChatCommand: ICommand = {
       id: CREATE_VCHART_COMMAND_ID,
       type: CommandType.COMMAND,
-      handler: async (
-        accessor,
-        params: {
-          spec: ISpec;
-          options?: Omit<IInitOption, "dom" | "renderCanvas">;
-          initPosition?: {
-            startX?: number;
-            startY?: number;
-            endX?: number;
-            endY?: number;
-          };
-        }
-      ) => {
+      handler: async (accessor, params: CreateVChartParams) => {
         const floatDomService = accessor.get(SheetCanvasFloatDomManagerService);
         // 返回浮层id，开发者需要自行存储
         await floatDomService.addFloatDomToPosition({
@@ -88,31 +69,11 @@ class UniverVChartPlugin extends Plugin {
             options: params.options,
           },
         });
-
-        // 浮层被删除
-        floatDomService.remove$.subscribe((transformState) => {
-          console.log("remove", transformState);
-        });
-
-        floatDomService.transformChange$.subscribe((transformState) => {
-          console.log("change", transformState);
-        });
-
         return true;
       },
     };
 
     this.commandService.registerCommand(createVChatCommand);
-  }
-
-  onReady() {
-    console.log("onReady");
-  }
-  onRendered() {
-    console.log("onRendered");
-  }
-  onSteady() {
-    console.log("onSteady");
   }
 }
 
