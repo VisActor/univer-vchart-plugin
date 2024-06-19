@@ -69,8 +69,8 @@ export default [
 
       typescript({
         tsconfig: path.resolve(__dirname, "./tsconfig.json"),
-        target: "es5",
-        downlevelIteration: true,
+        target: "es6",
+        downlevelIteration: false,
         declaration: true,
         declarationDir: "esm",
       }),
