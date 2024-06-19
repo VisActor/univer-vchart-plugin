@@ -11,13 +11,13 @@ import {
   SheetCanvasFloatDomManagerService,
   UniverSheetsDrawingUIPlugin,
 } from "@univerjs/sheets-drawing-ui";
-import type { IInitOption, ISpec } from "@visactor/react-vchart";
 import { VChart } from "@visactor/react-vchart";
 import {
   COMPONENT_KEY,
   CREATE_VCHART_COMMAND_ID,
   PLUGIN_NAME,
 } from "./constants";
+import { CreateVChartParams } from "./interface";
 
 @DependentOn(UniverSheetsDrawingUIPlugin)
 class UniverVChartPlugin extends Plugin {
@@ -51,19 +51,7 @@ class UniverVChartPlugin extends Plugin {
     const createVChatCommand: ICommand = {
       id: CREATE_VCHART_COMMAND_ID,
       type: CommandType.COMMAND,
-      handler: async (
-        accessor,
-        params: {
-          spec: ISpec;
-          options?: Omit<IInitOption, "dom" | "renderCanvas">;
-          initPosition?: {
-            startX?: number;
-            startY?: number;
-            endX?: number;
-            endY?: number;
-          };
-        }
-      ) => {
+      handler: async (accessor, params: CreateVChartParams) => {
         const floatDomService = accessor.get(SheetCanvasFloatDomManagerService);
         // 返回浮层id，开发者需要自行存储
         await floatDomService.addFloatDomToPosition({
