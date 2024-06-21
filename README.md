@@ -43,8 +43,8 @@ VChart is a chart component library within the VisActor visualization system. [U
 # npm
 $ npm install @visactor/univer-vchart-plugin
 
-# yarn
-$ yarn add @visactor/univer-vchart-plugin
+# pnpm
+$ pnpm add @visactor/univer-vchart-plugin
 ```
 
 ### 📊 A Simple Chart
