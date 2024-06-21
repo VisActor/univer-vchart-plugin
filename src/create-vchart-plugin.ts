@@ -57,11 +57,11 @@ class UniverVChartPlugin extends Plugin {
         await floatDomService.addFloatDomToPosition({
           allowTransform: true,
           initPosition: {
-            ...params.initPosition,
             startX: 100,
             startY: 100,
             endX: 400,
             endY: 400,
+            ...params.initPosition,
           },
           componentKey: COMPONENT_KEY,
           props: {
