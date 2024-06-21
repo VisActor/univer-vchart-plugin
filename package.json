@@ -1,7 +1,7 @@
 {
   "name": "@visactor/univer-vchart-plugin",
   "private": false,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "scripts": {
     "build": "rollup -c",
@@ -16,16 +16,23 @@
     "esm/",
     "umd/"
   ],
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@univerjs/sheets-drawing-ui": "^0.1.15",
+  "peerDependencies": {
     "@univerjs/core": "^0.1.15",
     "@univerjs/ui": "^0.1.15",
-    "@wendellhu/redi": "0.15.2",
+    "@wendellhu/redi": "^0.15.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "@univerjs/sheets-drawing-ui": "^0.1.15",
     "@visactor/react-vchart": "~1.11.3"
   },
   "devDependencies": {
+    "@univerjs/core": "^0.1.15",
+    "@univerjs/ui": "^0.1.15",
+    "@wendellhu/redi": "^0.15.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "glob": "^10.4.1",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-typescript": "^11.1.6",
