@@ -3,21 +3,22 @@ import {
   Plugin,
   DependentOn,
   CommandType,
+  Inject,
+  Injector,
 } from "@univerjs/core";
 import { ComponentManager } from "@univerjs/ui";
-import { Inject, Injector } from "@wendellhu/redi";
-import type { ICommand } from "@univerjs/core";
+import type { ICommand, Serializable } from "@univerjs/core";
 import {
   SheetCanvasFloatDomManagerService,
   UniverSheetsDrawingUIPlugin,
 } from "@univerjs/sheets-drawing-ui";
-import { VChart } from "@visactor/react-vchart";
 import {
   COMPONENT_KEY,
   CREATE_VCHART_COMMAND_ID,
   PLUGIN_NAME,
 } from "./constants";
 import { CreateVChartParams } from "./interface";
+import { VChartWrapper } from "./VChartWrapper";
 
 @DependentOn(UniverSheetsDrawingUIPlugin)
 class UniverVChartPlugin extends Plugin {
@@ -38,7 +39,7 @@ class UniverVChartPlugin extends Plugin {
 
   private _initCustomComponents = () => {
     const componentManager = this._componentManager;
-    this.disposeWithMe(componentManager.register(COMPONENT_KEY, VChart));
+    this.disposeWithMe(componentManager.register(COMPONENT_KEY, VChartWrapper));
   };
 
   /**
@@ -64,10 +65,11 @@ class UniverVChartPlugin extends Plugin {
             ...params.initPosition,
           },
           componentKey: COMPONENT_KEY,
-          props: {
+          data: {
+            data: params.data,
             spec: params.spec,
             options: params.options,
-          },
+          } as unknown as Serializable,
         });
         return true;
       },

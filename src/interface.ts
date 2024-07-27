@@ -8,6 +8,7 @@ import type { IInitOption, ISpec } from "@visactor/react-vchart";
  * @param initPosition ths position of vchart layer
  */
 export interface CreateVChartParams {
+  data?: ISpec["data"];
   spec: ISpec;
   options?: Omit<IInitOption, "dom" | "renderCanvas">;
   initPosition?: {
