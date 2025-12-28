@@ -1,5 +1,5 @@
 // eslint
-import type { FUniver } from "@univerjs/facade";
+import { FUniver } from "@univerjs/core/facade";
 import { ScrollToCellCommand } from "@univerjs/sheets-ui";
 import { CREATE_VCHART_COMMAND_ID } from "@visactor/univer-vchart-plugin";
 

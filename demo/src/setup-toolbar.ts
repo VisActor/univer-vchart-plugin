@@ -1,4 +1,4 @@
-import type { FUniver } from "@univerjs/facade";
+import { FUniver } from "@univerjs/core/facade";
 import {
   setupClearStyles,
   setupCommandsListenerSwitch,
