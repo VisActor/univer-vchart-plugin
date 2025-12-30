@@ -6,26 +6,22 @@ import path from "path";
 import { globSync } from "glob";
 import { fileURLToPath } from "node:url";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 const external = [
   "react",
   "react-dom",
-  "@univerjs/core",
-  "@univerjs/ui",
-  "@univerjs/sheets-drawing-ui",
+  "rxjs",
+  /@univerjs\/.*/,
   "@visactor/react-vchart",
-  "@wendellhu/redi",
 ];
 
 const inputs = Object.fromEntries(
   globSync("src/**/*.ts").map((file) => [
-    // 这里将删除 `src/` 以及每个文件的扩展名。
-    // 因此，例如 src/nested/foo.js 会变成 nested/foo
     path.relative(
       "src",
       file.slice(0, file.length - path.extname(file).length)
     ),
-    // 这里可以将相对路径扩展为绝对路径，例如
-    // src/nested/foo 会变成 /project/src/nested/foo.js
     fileURLToPath(new URL(file, import.meta.url)),
   ])
 );
@@ -46,8 +42,8 @@ export default [
         browser: true,
         modulesOnly: true,
         customResolveOptions: { preserveSymlinks: false },
-      }), // so Rollup can find `ms`
-      commonjs(), // so Rollup can convert `ms` to an ES module
+      }),
+      commonjs(),
       babel({
         presets: [
           [
@@ -64,7 +60,7 @@ export default [
           ],
         ],
         babelHelpers: "bundled",
-        extensions: [".js", ".ts"],
+        extensions: [".js", ".ts", ".tsx"],
       }),
 
       typescript({
@@ -77,8 +73,7 @@ export default [
     ],
   },
 
-  //cjs
-
+  // cjs
   {
     input: inputs,
     external: external,
@@ -93,8 +88,8 @@ export default [
         browser: false,
         modulesOnly: true,
         customResolveOptions: { preserveSymlinks: false },
-      }), // so Rollup can find `ms`
-      commonjs(), // so Rollup can convert `ms` to an ES module
+      }),
+      commonjs(),
       babel({
         presets: [
           [
@@ -111,7 +106,7 @@ export default [
           ],
         ],
         babelHelpers: "bundled",
-        extensions: [".js", ".ts"],
+        extensions: [".js", ".ts", ".tsx"],
       }),
 
       typescript({
