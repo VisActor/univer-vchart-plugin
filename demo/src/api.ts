@@ -2,6 +2,8 @@
 import { FUniver } from "@univerjs/core/facade";
 import { ScrollToCellCommand } from "@univerjs/sheets-ui";
 import { CREATE_VCHART_COMMAND_ID } from "@visactor/univer-vchart-plugin";
+import { COMPONENT_KEY } from "@visactor/univer-vchart-plugin";
+import { VChartWrapper } from "@visactor/univer-vchart-plugin";
 
 export function setupSetValue($toolbar: HTMLElement, univerAPI: FUniver) {
   const $button = document.createElement("a");
@@ -444,52 +446,39 @@ export function setupVChartDemo($toolbar: HTMLElement, univerAPI: FUniver) {
     const activeSheet = activeWorkbook.getActiveSheet();
     if (!activeSheet) throw new Error("activeSheet is not defined");
 
-    await univerAPI.executeCommand(CREATE_VCHART_COMMAND_ID, {
-      data: {
-        values: [
-          {
-            time: "2:00",
-            value: 8,
-          },
-          {
-            time: "4:00",
-            value: 9,
-          },
-          {
-            time: "6:00",
-            value: 11,
-          },
-          {
-            time: "8:00",
-            value: 14,
-          },
-          {
-            time: "10:00",
-            value: 16,
-          },
-          {
-            time: "12:00",
-            value: 17,
-          },
-          {
-            time: "14:00",
-            value: 17,
-          },
-          {
-            time: "16:00",
-            value: 16,
-          },
-          {
-            time: "18:00",
-            value: 15,
-          },
-        ],
+    // Use the Facade API to add float DOM
+    const disposable = activeSheet.addFloatDomToPosition({
+      componentKey: COMPONENT_KEY,
+      initPosition: {
+        startX: 100,
+        endX: 400,
+        startY: 100,
+        endY: 400,
       },
-      spec: {
-        type: "line",
-        xField: "time",
-        yField: "value",
+      data: {
+        data: {
+          values: [
+            { time: "2:00", value: 8 },
+            { time: "4:00", value: 9 },
+            { time: "6:00", value: 11 },
+            { time: "8:00", value: 14 },
+            { time: "10:00", value: 16 },
+            { time: "12:00", value: 17 },
+            { time: "14:00", value: 17 },
+            { time: "16:00", value: 16 },
+            { time: "18:00", value: 15 },
+          ],
+        },
+        spec: {
+          type: "line",
+          xField: "time",
+          yField: "value",
+        },
       },
     });
+
+    if (!disposable) {
+      console.error("Failed to add float DOM");
+    }
   });
 }

@@ -26,6 +26,7 @@
     "@univerjs/drawing": "^0.13.0",
     "@univerjs/drawing-ui": "^0.13.0",
     "@univerjs/sheets-drawing": "^0.13.0",
+    "@univerjs/sheets-drawing-ui": "^0.13.0",
     "@univerjs/sheets-ui": "^0.13.0",
     "@univerjs/ui": "^0.13.0"
   },

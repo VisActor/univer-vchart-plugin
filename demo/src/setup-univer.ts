@@ -1,3 +1,4 @@
+// demo/src/setup-univer.ts
 import { LocaleType, Univer, UniverInstanceType } from "@univerjs/core";
 import { defaultTheme } from "@univerjs/design";
 import { UniverDocsPlugin } from "@univerjs/docs";
@@ -18,6 +19,12 @@ import { UniverSheetsDrawingUIPlugin } from "@univerjs/sheets-drawing-ui";
 import { FUniver } from "@univerjs/core/facade";
 import { enUS } from "univer:locales";
 import { UniverVChartPlugin } from "@visactor/univer-vchart-plugin";
+
+import "@univerjs/sheets/facade";
+import "@univerjs/sheets-ui/facade";
+import "@univerjs/ui/facade";
+import "@univerjs/docs-ui/facade";
+import "@univerjs/sheets-drawing-ui/facade";
 
 export function setupUniver() {
   const univer = new Univer({
